@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useApplicationState } from "../context/AppContext";
-import List from "./List";
+import List from "../components/List";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,12 +21,12 @@ export default function PlayerList(props: IPlayerListProps) {
     error,
   } = Provider;
   const moveButtons = useCallback(() => {
-    const res = [];
+    let res: Array<JSX.Element|null> = [];
     if (maxPages) {
       res.push(
         <button
           className="navButtons"
-          disabled={pageNumber == 1}
+          disabled={pageNumber === 1}
           onClick={prevPage}
         >
           Prev
@@ -40,8 +40,7 @@ export default function PlayerList(props: IPlayerListProps) {
         if (index > 0)
           res.push(
             <button
-              className={pageNumber === index ? "page" : "" + "navButtons"}
-              // key={index}
+              className={pageNumber === index ? "page " : "navButtons"}
               onClick={() => showPage(index)}
             >
               {index}
@@ -57,6 +56,15 @@ export default function PlayerList(props: IPlayerListProps) {
           Next
         </button>
       );
+      if(res.length === 2){
+        res = [
+        <button
+          className="navButtons"
+          onClick={()=> showPage(1)}
+        >
+          1
+        </button>];
+      }
     }
     return res;
   }, [pageNumber, maxPages]);
@@ -73,10 +81,6 @@ export default function PlayerList(props: IPlayerListProps) {
         </div>
       </>
     );
-      console.log( state.players.slice(
-        (pageNumber - 1) * perPage,
-        pageNumber * perPage
-      ))
   return (
     <>
       <div className="side">

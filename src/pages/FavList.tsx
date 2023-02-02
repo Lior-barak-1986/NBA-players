@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useApplicationState } from "../context/AppContext";
-import List from "./List";
+import List from "../components/List";
 
 interface IListProps {}
 

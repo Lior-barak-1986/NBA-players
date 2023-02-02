@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FavList from "./FavList";
+import FavList from "../pages/FavList";
 import NavBar from "./NavBar";
-import PlayerList from "./PlayerList";
+import PlayerList from "../pages/PlayerList";
 
 export interface IAppRoutesProps {}
 

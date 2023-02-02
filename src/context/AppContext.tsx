@@ -31,7 +31,7 @@ export { ApplicationContext };
 export const useApplicationState = (): ApplicationContextType => {
   const context = React.useContext(ApplicationContext);
   if (context === undefined) {
-    throw new Error("useNotesState must be used within a NotesProvider");
+    throw new Error("useApplicationState must be used within a AppContextProvider");
   }
   return context;
 };
@@ -106,7 +106,7 @@ export default function AppContextProvider(props: IAppContextProps) {
         !state.players[(pageNumber - 1) * perPage] &&
         !state.players[pageNumber * perPage - 1]) ||
       !state.players.length
-    ) {
+    )  {
       setUpdating(true);
       setTimer(
         setTimeout(() => {
@@ -115,7 +115,7 @@ export default function AppContextProvider(props: IAppContextProps) {
       );
     }
     return () => clearTimeout(timer);
-  }, [searchPhrase, pageNumber]);
+  }, [searchPhrase, pageNumber, perPage, state.players.length]);
 
   return (
     <ApplicationContext.Provider

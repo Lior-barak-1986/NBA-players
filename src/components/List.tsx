@@ -6,8 +6,6 @@ import PlayerCard from "./PlayerCard";
 export interface IListProps {
   players: Array<Player | null>;
   updating: boolean;
-  // onClick: (player:Player)=> void,
-  // save: save
 }
 
 export default function List(props: IListProps) {
