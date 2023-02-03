@@ -18,6 +18,7 @@ export interface ApplicationContextType{
     pageNumber: number;
     maxPages: number;
     perPage: number;
+    searchPhrase: string;
     searchAPI: (name: string) => void;
     showPage: (num: number) => void;
     bg: string;

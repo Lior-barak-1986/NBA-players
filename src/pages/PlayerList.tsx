@@ -17,6 +17,7 @@ export default function PlayerList(props: IPlayerListProps) {
     searchAPI,
     showPage,
     updating,
+    searchPhrase,
     perPage,
     error,
   } = Provider;
@@ -89,6 +90,7 @@ export default function PlayerList(props: IPlayerListProps) {
           <input
             type="text"
             placeholder="For example: Kobe Bryant"
+            value={searchPhrase}
             onChange={(e) => searchAPI(e.target.value)}
             id="searchPlayer"
           />
