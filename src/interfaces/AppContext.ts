@@ -13,6 +13,7 @@ export interface ApplicationContextType{
     prevPage: () => void;
     addFavPlayers: (player: Player) => void;
     removeFavPlayers: (player: Player) => void;
+    updateUserName: (name: string) => void;
     updating: boolean;
     pageNumber: number;
     maxPages: number;

@@ -13,6 +13,7 @@ const ApplicationContext = React.createContext<ApplicationContextType>({
   },
   changeBackground: (color) => {},
   bg: "",
+  updateUserName: () => {},
   nextPage: () => {},
   prevPage: () => {},
   addFavPlayers: (player) => {},
@@ -41,6 +42,7 @@ export default function AppContextProvider(props: IAppContextProps) {
   const [state, dispatch] = useReducer(playerReducer, initialPlayersState);
   const [perPage, setPerPage] = useState<number>(25);
   const [bg, setBg] = useState("");
+  const [userName, setUserName] = useState("NBA-Fan");
   const [searchPhrase, setSearchPhrase] = useState<string>("");
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [updating, setUpdating] = useState<boolean>(false);
@@ -117,6 +119,10 @@ export default function AppContextProvider(props: IAppContextProps) {
     return () => clearTimeout(timer);
   }, [searchPhrase, pageNumber, perPage, state.players.length]);
 
+  const updateUserName = (name: string) =>{
+    setUserName(name);
+  }
+
   return (
     <ApplicationContext.Provider
       value={{
@@ -126,6 +132,7 @@ export default function AppContextProvider(props: IAppContextProps) {
         removeFavPlayers,
         prevPage,
         changeBackground,
+        updateUserName,
         bg,
         state,
         updating,

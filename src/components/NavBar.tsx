@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export interface INavBarProps {}
@@ -22,6 +22,14 @@ export default function NavBar(props: INavBarProps) {
            isActive ? {backgroundColor: "#f6d183",  color: "#3c046f"} : undefined
          }>
             Your favorite players!
+          </NavLink>
+        </div>
+        <div>
+          <NavLink to="/profile" className="navLink" 
+          style={({ isActive }) =>
+              isActive ? {backgroundColor: "#f6d183", color: "#3c046f"} : undefined
+            }>
+              User profile
           </NavLink>
         </div>
       </div>

@@ -72,8 +72,7 @@ export default function PlayerList(props: IPlayerListProps) {
   if (error)
     return (
       <>
-        <div className="side "></div>
-        <div className="list bg">
+        <div className="full_main_screen bg">
           <h1>Error in fetching please retry</h1>
           <button className="navButtons" onClick={() => searchAPI("")}>
             <FontAwesomeIcon icon={faArrowsRotate} />
@@ -95,7 +94,7 @@ export default function PlayerList(props: IPlayerListProps) {
           />
         </div>
       </div>
-        <div className="list">
+        <div className="list main">
           {moveButtons()}
           <List
             updating={updating}
